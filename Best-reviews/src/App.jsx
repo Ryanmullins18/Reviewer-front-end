@@ -22,7 +22,7 @@ function App() {
         <Route path='/items' element={<Items />} />
         <Route path='/' element={<Splash />} />
         <Route path='/items/:id' element={<SingleItem />}/>
-        <Route path='/reviews/:id' element={<ReviewForm  token={token?.token}/>}/>
+        <Route path='/reviews/:id' element={<ReviewForm  token={token}/>}/>
       </Routes>
     </div>
   )

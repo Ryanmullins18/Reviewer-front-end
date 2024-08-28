@@ -4,7 +4,7 @@ import { useGetItemsQuery } from "../redux/api";
 import { useNavigate } from "react-router-dom";
 import "../index.css"
 import splash_img from "../assets/splash_img.jpg"
-import { useNewReviewMutation } from "../redux/api";
+
 
 const Items = () => {
   const [searchParameter, setSearchParameter] = useState("");
@@ -20,12 +20,12 @@ const Items = () => {
 
   
   if (isLoading) {
-    return <p className="cent">Loading Items...</p>;
+    return <p>Loading Items...</p>;
   }
 
   if (error) {
     console.log(error);
-    return <p className="cent">Something went wrong, please try again!</p>;
+    return <p>Something went wrong, please try again!</p>;
    
   }
 //   const filterData = searchParameter && data
@@ -36,8 +36,7 @@ const Items = () => {
 //   : items.items;
 
 if(data){  
-    console.log(data)
-    console.log(data.items[0].reviews)
+  
 return (
     <div>
     <h1>items</h1>

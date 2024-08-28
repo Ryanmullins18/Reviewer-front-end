@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useNewReviewMutation } from "../redux/api";
 import { useParams } from "react-router-dom";
 
-function ReviewForm(token){
+function ReviewForm({token}){
     const initialForm = {
         txt: "",
         score: ""
     }
-    const { item_id } = useParams();
+const { id } = useParams();
 const[error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
-const [newReview] = useNewReviewMutation(item_id);
+const [newReview] = useNewReviewMutation(id);
 const handleChange = ({ target }) => {
     setError(null)
     updateForm({...form, [target.name]: target.value});
