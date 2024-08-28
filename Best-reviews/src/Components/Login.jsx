@@ -1,22 +1,17 @@
 import { useState } from "react";
-import { useRegisterMutation } from "../redux/api";
+import { useLoginMutation } from "../redux/api";
 
-function Register({setToken}){
+function Login({setToken}){
     const initialForm = {username: "", password: ""};
-    
 
-    const[form, updateForm] = useState(initialForm);
-    const[showPassword, setShowPassword]= useState(false)
     const[error, setError] = useState(null);
-    const[register] = useRegisterMutation(); 
-    
-
+    const [form, updateForm]= useState(initialForm)
+    const[login] = useLoginMutation(); 
     const handleChange = ({ target }) => {
         setError(null)
         updateForm({...form, [target.name]: target.value});
     };
-    const handleSubmit= async (evt)=> {
-     
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
         console.log(form);
 
@@ -25,44 +20,41 @@ function Register({setToken}){
             return;
        }
 
-       const {data, error}= await register(form);
-
+       const {data, error}= await login(form);
        if(error) {
         setError(error);
         console.log(error)
         return;
        }
        setToken(data.token)
+
     }
     const {username, password} = form;
- 
     return (
         <div>
-            <h2>Register for Best Reviews</h2>
-            {error && <p>{error} </p>}
+            <h2>Login to Best Reviews</h2>
             <form>
                 <label>
                     Username
                 <input 
                 name ="username" 
-                value={username} 
-                onChange={handleChange}
+               value={username}
+               onChange={handleChange}
                 />
                 </label>
                 <label>
                     Password
                 <input 
                 name="password" 
-                type={!showPassword ? "password":"text" }
-                value={password} 
+                type="password"
+                value={password}
                 onChange={handleChange}
                 />
                 </label>
-                <button onClick={handleSubmit}>Register</button>
+                <button onClick={handleSubmit}>Login</button>
             </form>
-            <button onClick= {()=> setShowPassword(!showPassword)}>show password</button>
         </div>
     )
 }
 
-export default Register;
+export default Login;
