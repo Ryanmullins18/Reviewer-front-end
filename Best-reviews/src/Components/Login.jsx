@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useLoginMutation } from "../redux/api";
+import { useNavigate } from "react-router-dom";
 
 function Login({setToken}){
     const initialForm = {username: "", password: ""};
-
+    const navigate = useNavigate();
     const[error, setError] = useState(null);
     const [form, updateForm]= useState(initialForm)
     const[login] = useLoginMutation(); 
@@ -27,7 +28,7 @@ function Login({setToken}){
         return;
        }
        setToken(data.token)
-
+       navigate("/items");
     }
     const {username, password} = form;
     return (
@@ -36,22 +37,22 @@ function Login({setToken}){
             <form>
                 <label>
                     Username
-                <input 
-                name ="username" 
-               value={username}
-               onChange={handleChange}
-                />
+                    <input 
+                     name ="username" 
+                     value={username}
+                     onChange={handleChange}
+                    />
                 </label>
                 <label>
                     Password
-                <input 
-                name="password" 
-                type="password"
-                value={password}
-                onChange={handleChange}
-                />
+                    <input 
+                     name="password" 
+                     type="password"
+                     value={password}
+                     onChange={handleChange}
+                    />
                 </label>
-                <button onClick={handleSubmit}>Login</button>
+            <button onClick={handleSubmit}>Login</button>
             </form>
         </div>
     )

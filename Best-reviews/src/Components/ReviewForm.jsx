@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 function ReviewForm({token}){
     const initialForm = {
         txt: "",
-        score: ""
+        score: 0
     }
 const { id } = useParams();
 const[error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
-const [newReview] = useNewReviewMutation(id);
+const [newReview] = useNewReviewMutation();
 const handleChange = ({ target }) => {
     setError(null)
     updateForm({...form, [target.name]: target.value});
@@ -22,7 +22,9 @@ if(txt === "" || score === ""){
     setError("Please use text and stars")
     return;
 }
-const {data, error}= await newReview({token, body: form});
+
+
+const {data, error}= await newReview({id, token, body: form});
 console.dir(token)
 };
 
@@ -37,8 +39,9 @@ console.dir(token)
                 </label>
                 <label>
                     Stars
-                    <input name="score" value={score} onChange={handleChange}/>
+                    <input type="number" step="0.5" name="score" value={score} onChange={handleChange}/>
                 </label>
+                
                 <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>

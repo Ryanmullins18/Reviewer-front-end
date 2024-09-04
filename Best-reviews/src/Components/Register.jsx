@@ -33,6 +33,7 @@ function Register({setToken}){
         return;
        }
        setToken(data.token)
+       navigate("/items");
     }
     const {username, password} = form;
  

@@ -41,7 +41,26 @@ export const review_api= createApi({
                 body,
             }),
         }),
+        newComment: builder.mutation({
+            query: ({id, token, body})=> ({
+                url: `/comments/${id}`,
+                method: 'POST',
+                headers: {
+                    authorization: `Bearer ${token}`
+                },
+                body,
+            }),
+        }),
+        getUser: builder.query({
+            query: (token) => ({
+              url: "/users",
+              headers: {
+                authorization: `Bearer ${token}`,
+              },
+            }),
+            providesTags: ["User"],
+          }),
     }),
 });
 
-export const{useRegisterMutation, useGetItemQuery, useGetItemsQuery, useLoginMutation, useNewReviewMutation} = review_api;
+export const{useRegisterMutation, useGetItemQuery, useGetItemsQuery, useLoginMutation, useNewReviewMutation, useNewCommentMutation, useGetUserQuery} = review_api;
