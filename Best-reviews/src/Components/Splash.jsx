@@ -1,10 +1,10 @@
-import splash_img from "../assets/splash_img.jpg"
+import logo from "../assets/logo.png"
 
 function Splash(){
     return (
-        <section>
+        <section className="splash">
+            <img src= {logo}/>
             <h2>The best place for unbiased reviews on random items!</h2>
-            <img src= {splash_img}/>
         </section>
     )
 }

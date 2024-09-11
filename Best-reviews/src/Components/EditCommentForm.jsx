@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useNewCommentMutation } from "../redux/api";
+import { useEditCommentMutation } from "../redux/api";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
-function CommentForm({token}){
+function EditCommentForm({token}){
      const navigate=useNavigate();
     const initialForm = {
         comment: ""
@@ -12,7 +12,7 @@ function CommentForm({token}){
 const { id } = useParams();
 const[error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
-const [newComment] = useNewCommentMutation();
+const [editComment] = useEditCommentMutation();
 const handleChange = ({ target }) => {
     setError(null)
     updateForm({...form, [target.name]: target.value});
@@ -25,14 +25,13 @@ if(comment === ""){
     return;
 }
 
-const {data, error}= await newComment({id, token, body: form});
-console.dir(data)
-navigate(`/items/${data.review.item_id}`);
+const {data, error}= await editComment({id, token, body: form});
+console.dir(token)
 };
 
     return(
         <div>
-            <h2>comment form</h2>
+            <h2>Edit comment form</h2>
             {error && <p>{error}</p>}
             <form>
                 <label>
@@ -41,7 +40,8 @@ navigate(`/items/${data.review.item_id}`);
                 </label>
                 <button onClick={handleSubmit}>Submit</button>
             </form>
+            <button onClick={() => navigate(`/users`)}>Back</button>
         </div>
     )
 }
-export default CommentForm;
+export default EditCommentForm;

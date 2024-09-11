@@ -1,12 +1,17 @@
 import { useGetUserQuery } from "../redux/api";
-import profileicon from "../assets/profileicon.jpg"
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 
 function Profile({token}){
     const { data = {}, error, isLoading } = useGetUserQuery(token);
     const navigate = useNavigate();
+    const { id } = useParams();
+    
+    
+   
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -23,24 +28,22 @@ function Profile({token}){
         <section className="padding account">
           <h1>Profile</h1>
           <div>
-            
-              {/* using spans so we can capitalize with CSS */}
-            <p>{username}</p>
-            <ul>
+            <p className="username">{username}</p>
+            <ul className="profile-reviews">
             Reviews: {reviews.map((review) => (
-            <li key={review.id}>
+            <li className="reviews" key={review.id}>
               {review.txt} score: {review.score}
-              <button>Edit</button>
-              <button>Delete</button>
+              <button onClick={() => navigate(`reviews/${review.id}`)}>Edit</button>
+              <button onClick={()=> navigate(`delete/reviews/${review.id}`)}>Delete</button>
             </li>
             ))}
           </ul>
-          <ul>
+          <ul className="profile-comments">
             Comments: {comments.map((comment) => (
-            <li key={comment.id}>
+            <li className="comments" key={comment.id}>
               {comment.comment}
-              <button>Edit</button>
-              <button>Delete</button>
+              <button onClick={() => navigate(`comments/${comment.id}`)}>Edit</button>
+              <button onClick={()=> navigate(`delete/comment/${comment.id}`)}>Delete</button>
             </li>
             ))}
           </ul>

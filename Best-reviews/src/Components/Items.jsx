@@ -4,15 +4,13 @@ import { useGetItemsQuery } from "../redux/api";
 import { useNavigate } from "react-router-dom";
 import "../index.css"
 import splash_img from "../assets/splash_img.jpg"
+import logo from "../assets/logo.png"
 
 
 const Items = ({token}) => {
   const navigate=useNavigate();
   const {data, isLoading, error} = useGetItemsQuery();
-
-  
-
-    
+  const [search, setSearch] = useState("");
     
   console.log("is Loading",isLoading)
   console.log(data) //.items
@@ -30,20 +28,33 @@ const Items = ({token}) => {
    
   }
 
+  const itemsToDisplay =
+      search && data?.items
+        ? data.items.filter((item) =>
+            item.name.toLowerCase().includes(search.toLowerCase())
+          )
+        : data.items;
+
 if(token){  
   
 return (
+  
     <div>
-    <h1>items</h1>
-    {data.items.map((item)=>(
-          <div key={item.id}>
+      <label>
+       
+        <input className="search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+      </label>
+      <img src= {logo}/>
+    {itemsToDisplay.map((item)=>{
+      return(
+          <div className="items-box" key={item.id}>
           <img src={splash_img}/>
           <p>Item: {item.name}</p>
           <p>Description: {item.description}</p>
           {item.reviews?.length > 0 && 
           <div> 
             <p>Latest review of this item : {item.reviews[0].txt}</p>
-            <p>Score: {item.reviews[0].score}</p>
+            <p className="stars">Stars: {item.reviews[0].score}</p>
           </div>
           }
        <button onClick={() => navigate(`/reviews/${item.id}`)}>Add Review</button>
@@ -51,36 +62,42 @@ return (
                 navigate(`/items/${item.id}`);
               }}>Read Reviews</button>
       </div>
-      
-    ))}
+      )
+            })}
     </div>
   );
 };
-return(
+return (
+  
   <div>
-    <h1>items</h1>
-    {data.items.map((item)=>(
-          <div key={item.id}>
-          <img src={splash_img}/>
-          <p>Item: {item.name}</p>
-          <p>Description: {item.description}</p>
-          {item.reviews?.length > 0 && 
-          <div> 
-            <p>Latest review of this item : {item.reviews[0].txt}</p>
-            <p>Score: {item.reviews[0].score}</p>
-          </div>
-          }
-       <button onClick={() => {
+    <img src= {logo}/>
+    <label>
+    {" "} <input className="search" value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+    </label>
+    
+  {itemsToDisplay.map((item)=>{
+    return(
+        <div className="items-box" key={item.id}>
+        <img src={splash_img}/>
+        <p>Item: {item.name}</p>
+        <p>Description: {item.description}</p>
+        {item.reviews?.length > 0 && 
+        <div> 
+          <p>Latest review of this item : {item.reviews[0].txt}</p>
+          <p className="stars">Stars: {item.reviews[0].score}</p>
+        </div>
+        }
+     <button onClick={() => {
                 navigate(`/items/${item.id}`);
               }}>Read Reviews</button>
               <button onClick={()=>{
                 navigate("/login");
               }}>Login to add review</button>
-      </div>
-      
-    ))}
     </div>
-)
+    )
+          })}
+  </div>
+);
 }
 
 export default Items; 

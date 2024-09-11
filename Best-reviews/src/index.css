@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgb(113, 1, 1);
+  background-color: #FFF2E6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -88,3 +88,53 @@ nav {
 .profile-button-button{
   background: none;
 }
+.reviews{
+  border: solid red;
+  border-radius: 5%;
+  padding: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.stars{
+  color: rgb(125, 107, 8);
+  padding: 5px;
+}
+.comments{
+  border: solid rgb(45, 45, 48);
+}
+.username{
+  font-size: xx-large;
+}
+.items-box{
+  background-color: white;
+  border: solid;
+  border-radius: 2%;
+  margin-top: 20px;
+  color: black;
+  padding: 10px;
+}
+
+.item-box{
+  background-color: white;
+  border: solid;
+  border-radius: 2%;
+  margin-top: 20px;
+  color: black;
+}
+.BR{
+  width: 54px;
+    height: 54px;
+}
+.login-to-add{
+  padding: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 25%;
+}
+.splash{
+  color: rgb(113, 1, 1);
+}
+/* .search{
+  position: relative;
+  right: 25%;
+} */

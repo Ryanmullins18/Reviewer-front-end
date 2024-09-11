@@ -22,7 +22,8 @@ export const review_api= createApi({
             query:(id)=> ({
                 url:`/items/${id}`,
                 method: "GET",
-            })
+            }),
+            providesTags:["item"]
         }),
         login: builder.mutation({
             query: (body)=> ({
@@ -40,6 +41,7 @@ export const review_api= createApi({
                 },
                 body,
             }),
+            invalidatesTags: ["item"]
         }),
         newComment: builder.mutation({
             query: ({id, token, body})=> ({
@@ -50,6 +52,7 @@ export const review_api= createApi({
                 },
                 body,
             }),
+            invalidatesTags: ["item"]
         }),
         getUser: builder.query({
             query: (token) => ({
@@ -59,8 +62,49 @@ export const review_api= createApi({
               },
             }),
             providesTags: ["User"],
-          }),
+        }),
+  
+    editComment: builder.mutation({
+        query: ({id, token, body})=> ({
+            url: `/comments/${id}`,
+            method: 'PUT',
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+            body,
+        }),
     }),
+    editReview: builder.mutation({
+        query: ({id, token, body})=> ({
+            url: `reviews/${id}`,
+            method: 'PUT',
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+            body,
+        }),
+    }),
+    deleteReview: builder.mutation({
+        query: ({ id, token }) => ({
+          url: `/reviews/${id}`,
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }),
+        invalidatesTags: ["reviews", "review"],
+      }),
+      deleteComment: builder.mutation({
+        query: ({ id, token }) => ({
+          url: `/comments/${id}`,
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }),
+        invalidatesTags: ["comments", "comment"],
+      }),
+  }),
 });
 
-export const{useRegisterMutation, useGetItemQuery, useGetItemsQuery, useLoginMutation, useNewReviewMutation, useNewCommentMutation, useGetUserQuery} = review_api;
+export const{useRegisterMutation, useGetItemQuery, useGetItemsQuery, useLoginMutation, useNewReviewMutation, useNewCommentMutation, useGetUserQuery, useEditReviewMutation, useEditCommentMutation, useDeleteCommentMutation, useDeleteReviewMutation} = review_api;

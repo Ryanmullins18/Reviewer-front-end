@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { useNewReviewMutation } from "../redux/api";
+import { useEditReviewMutation } from "../redux/api";
 import { useNavigate, useParams } from "react-router-dom";
 
-function ReviewForm({token}){
+function EditReviewForm({token}){
     const initialForm = {
         txt: "",
         score: 0
     }
+const navigate= useNavigate()
 const { id } = useParams();
-const navigate= useNavigate();
 const[error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
-const [newReview] = useNewReviewMutation();
+const [editReview] = useEditReviewMutation();
 const handleChange = ({ target }) => {
     setError(null)
     updateForm({...form, [target.name]: target.value});
@@ -23,14 +23,13 @@ if(txt === "" || score === ""){
     setError("Please use text and stars")
     return;
 }
-const {data, error}= await newReview({id, token, body: form});
+const {data, error}= await editReview({id, token, body: form});
 console.dir(token)
-navigate(`/items/${id}`)
 };
 
     return(
         <div>
-            <h2>review form</h2>
+            <h2> edit review form</h2>
             {error && <p>{error}</p>}
             <form action="">
                 <label>
@@ -44,7 +43,8 @@ navigate(`/items/${id}`)
                 
                 <button onClick={handleSubmit}>Submit</button>
             </form>
+            <button onClick={() => navigate(`/users`)}>Back</button>
         </div>
     )
 }
-export default ReviewForm;
+export default EditReviewForm;
