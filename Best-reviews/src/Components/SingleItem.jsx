@@ -28,7 +28,7 @@ function SingleItem({token}){
   if(token){  
 
     return (
-      <section className="item-box">
+      <section className="wrapper">
         <h1> {name}</h1>
         <img className="item-img" src={img_url} />
         
@@ -65,7 +65,7 @@ function SingleItem({token}){
     
   };
   return (
-    <section className="item-box">
+    <section className="wrapper">
       <h1> {name}</h1>
       <img className="item-img" src={img_url} />
       
