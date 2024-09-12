@@ -67,7 +67,7 @@ function SingleItem({token}){
   return (
     <section className="item-box">
       <h1> {name}</h1>
-      <img className="item-img" src={item.img_url} />
+      <img className="item-img" src={img_url} />
       
       <h3>
         Description: {description} 
