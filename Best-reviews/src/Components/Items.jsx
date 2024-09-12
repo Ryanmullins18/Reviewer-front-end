@@ -39,12 +39,11 @@ if(token){
   
 return (
   
-    <div className="wrapper">
-      <label>
-       
-        <input className="search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
-      </label>
-      <img className="logo" src= {logo}/>
+  <div className="wrapper">
+  <img src= {logo}/>
+  <label>
+  {" "} <input className="search" value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+  </label>
     {itemsToDisplay.map((item)=>{
       return(
           <div className="items-box" key={item.id}>
