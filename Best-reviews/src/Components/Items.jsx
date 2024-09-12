@@ -39,7 +39,7 @@ if(token){
   
 return (
   
-    <div>
+    <div className="wrapper">
       <label>
        
         <input className="search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
@@ -69,7 +69,7 @@ return (
 };
 return (
   
-  <div>
+  <div className="wrapper">
     <img src= {logo}/>
     <label>
     {" "} <input className="search" value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
