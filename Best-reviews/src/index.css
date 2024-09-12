@@ -213,6 +213,7 @@ nav {
 
 form{
   display: inline-block;
+  width: 176px;
 }
 
 form button{
@@ -231,6 +232,7 @@ input {
   height: 50px;
   width: 100%;
   border-radius: 3px;
+  font-size: x-large;
 }
 label {
   display: block;
