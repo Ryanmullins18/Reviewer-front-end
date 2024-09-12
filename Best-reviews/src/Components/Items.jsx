@@ -34,7 +34,7 @@ const Items = ({token}) => {
             item.name.toLowerCase().includes(search.toLowerCase())
           )
         : data.items;
-
+console.log(data)
 if(token){  
   
 return (
@@ -48,7 +48,7 @@ return (
     {itemsToDisplay.map((item)=>{
       return(
           <div className="items-box" key={item.id}>
-          <img src={splash_img}/>
+          <img src={item.img_url}/>
           <p>Item: {item.name}</p>
           <p>Description: {item.description}</p>
           {item.reviews?.length > 0 && 
