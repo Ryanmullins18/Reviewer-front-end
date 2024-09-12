@@ -148,6 +148,9 @@ nav {
     width: 250px;
     height: 200px;
   }
+  .wrapper{
+    width: 300px;
+  }
 }
 /* .search{
   position: relative;
