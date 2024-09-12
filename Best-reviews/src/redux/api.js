@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 export const review_api= createApi({
     reducerPath: 'review_api',
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://the-reviewer.onrender.com/api"
+        baseUrl: "https://itemadvisor.onrender.com/api"
     }),
     endpoints: (builder) => ({
         register: builder.mutation({
