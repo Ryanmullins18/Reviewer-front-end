@@ -23,14 +23,14 @@ function SingleItem({token}){
   if(!data.item){
     return <p className="cent">Loading Reviews...</p>;
   }
-  const { name, description, reviews} = data?.item;   
+  const { name, description, reviews, item} = data?.item;   
   
   if(token){  
 
     return (
       <section className="item-box">
         <h1> {name}</h1>
-        <img className="item-img" src={items.img_url} />
+        <img className="item-img" src={item.img_url} />
         
         <h3>
           Description: {description} 
