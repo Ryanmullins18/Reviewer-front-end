@@ -61,8 +61,8 @@ function Register({setToken}){
                 />
                 </label>
                 <button onClick={handleSubmit}>Register</button>
-            </form>
             <button onClick= {()=> setShowPassword(!showPassword)}>show password</button>
+            </form>
         </div>
     )
 }
