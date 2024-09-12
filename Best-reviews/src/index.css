@@ -134,8 +134,8 @@ nav {
 .login-to-add{
   padding: 10px;
   margin-bottom: 10px;
-  position: absolute;
-  right: 25%;
+  display: block;
+  margin: auto;
 }
 .splash{
   color: rgb(113, 1, 1);
@@ -179,10 +179,14 @@ nav {
   height: 260px;
 }
 .login-to-add {
-  padding: 10px;
+  /* padding: 10px;
   margin-bottom: 10px;
   position: absolute;
-  margin-left: -33%;
+  margin-left: -33%; */
+  padding: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin: auto;
 }
 .item-reviews {
   .item-reviews {
