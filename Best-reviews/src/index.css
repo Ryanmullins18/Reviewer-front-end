@@ -140,7 +140,11 @@ nav {
   width:25em;
   height: 12.5em;
 }
-
+@media only screen and (max-width: 600px) {
+  .splash {
+    width: 300px;
+  }
+}
 /* .search{
   position: relative;
   right: 25%;
