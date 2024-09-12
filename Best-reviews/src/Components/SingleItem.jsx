@@ -36,8 +36,8 @@ function SingleItem({token}){
           Description: {description} 
         </h3>
         <button onClick={() => navigate(`/reviews/${data.item.id}`)}>Add Review</button>
-            <div>
-              <ul>
+            <div className="item-reviews">
+              
           {reviews.map((review) => (
             <li key={review.id} className="reviews">
               {review.txt} 
@@ -54,7 +54,7 @@ function SingleItem({token}){
               <button onClick={() => navigate(`/comments/${review.id}`)}>Add Comment</button>
             </li>
             ))}
-          </ul>
+         
           
           
             </div>
