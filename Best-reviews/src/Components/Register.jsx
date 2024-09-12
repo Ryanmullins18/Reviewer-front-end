@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useRegisterMutation } from "../redux/api";
+import { useNavigate } from "react-router-dom";
 
 function Register({setToken}){
     const initialForm = {username: "", password: ""};
-    
+    const navigate= useNavigate()
 
     const[form, updateForm] = useState(initialForm);
     const[showPassword, setShowPassword]= useState(false)
