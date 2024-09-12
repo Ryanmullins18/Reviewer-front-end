@@ -4,7 +4,7 @@ function Splash(){
     return (
         <section className="splash">
             <img src= {logo}/>
-            <h2>The best place for unbiased reviews on random items!</h2>
+            <h2>The best place for unbiased reviews on random items</h2>
         </section>
     )
 }
