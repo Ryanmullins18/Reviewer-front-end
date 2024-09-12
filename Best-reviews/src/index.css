@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 100%;
 }
 
 h1 {
@@ -134,6 +135,10 @@ nav {
 .splash{
   color: rgb(113, 1, 1);
   max-width: 100%;
+}
+.item-img{
+  width:25em;
+  height: 12.5em;
 }
 
 /* .search{

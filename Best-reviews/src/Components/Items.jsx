@@ -48,7 +48,7 @@ return (
     {itemsToDisplay.map((item)=>{
       return(
           <div className="items-box" key={item.id}>
-          <img src={item.img_url}/>
+          <img className="item-img" src={item.img_url}/>
           <p>Item: {item.name}</p>
           <p>Description: {item.description}</p>
           {item.reviews?.length > 0 && 
@@ -78,7 +78,7 @@ return (
   {itemsToDisplay.map((item)=>{
     return(
         <div className="items-box" key={item.id}>
-        <img src={item.img_url}/>
+        <img className="item-img" src={item.img_url}/>
         <p>Item: {item.name}</p>
         <p>Description: {item.description}</p>
         {item.reviews?.length > 0 && 
