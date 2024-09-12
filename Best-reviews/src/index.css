@@ -90,7 +90,7 @@ nav {
   background: none;
 }
 .reviews{
-  border: solid red;
+  background-color: #beb6a1;
   border-radius: 5%;
   padding: 20px;
   margin-top: 5px;
@@ -150,6 +150,7 @@ nav {
   }
   .wrapper{
     width: 300px;
+    text-align: center;
   }
   .wrapper img{
     width: 17em;
@@ -172,11 +173,30 @@ nav {
   width: 368px;
   height: 260px;
 }
+.login-to-add {
+  padding: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  margin-left: -33%;
+}
+.item-reviews {
+  .item-reviews {
+    border: solid rgb(201, 178, 178);
+    border-radius: 5%;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    width: 259px;
+}
+}
 }
 .logo{
   text-align: center;
 }
-/* .search{
-  position: relative;
-  right: 25%;
-} */
+.login-to-add{
+  text-align: center;
+}
+.search{
+  text-align: center;
+}

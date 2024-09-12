@@ -72,8 +72,8 @@ function SingleItem({token}){
       <h3>
         Description: {description} 
       </h3>
-          <div>
-            <ul className="item-reviews">
+          <div className="item-reviews">
+            
         {reviews.map((review) => (
           <li key={review.id} className="reviews">
             Review: {review.txt}
@@ -92,7 +92,7 @@ function SingleItem({token}){
               </div>
           </li>
           ))}
-        </ul>
+        
         
         <button className="login-to-add" onClick={() => navigate(`/login`)}>Login to add a review or comment!</button>
           </div>

@@ -41,8 +41,8 @@ return (
   
   <div className="wrapper">
   <img src= {logo}/>
-  <label>
-  {" "} <input className="search" value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+  <label className="search" >
+  {" "} <input value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
   </label>
     {itemsToDisplay.map((item)=>{
       return(
