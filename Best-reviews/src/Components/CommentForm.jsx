@@ -32,7 +32,7 @@ navigate(`/items/${data.review.item_id}`);
 
     return(
         <div>
-            <h2>comment form</h2>
+            <h2>Comment form</h2>
             {error && <p>{error}</p>}
             <form>
                 <label>

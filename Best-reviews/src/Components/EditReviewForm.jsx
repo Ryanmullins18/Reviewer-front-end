@@ -29,7 +29,7 @@ console.dir(token)
 
     return(
         <div>
-            <h2> edit review form</h2>
+            <h2> Edit review form</h2>
             {error && <p>{error}</p>}
             <form action="">
                 <label>
