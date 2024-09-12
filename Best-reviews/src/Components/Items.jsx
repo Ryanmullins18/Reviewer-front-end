@@ -44,7 +44,7 @@ return (
        
         <input className="search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
       </label>
-      <img src= {logo}/>
+      <img className="logo" src= {logo}/>
     {itemsToDisplay.map((item)=>{
       return(
           <div className="items-box" key={item.id}>
