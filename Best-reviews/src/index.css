@@ -144,6 +144,10 @@ nav {
   .splash {
     width: 300px;
   }
+  .splash img{
+    width: 250px;
+    height: 200px;
+  }
 }
 /* .search{
   position: relative;
