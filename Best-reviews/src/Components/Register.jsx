@@ -40,7 +40,7 @@ function Register({setToken}){
  
     return (
         <div>
-            <h2>Register for Best Reviews</h2>
+            <h2>Register for Item Advisor</h2>
             {error && <p>{error} </p>}
             <form>
                 <label>

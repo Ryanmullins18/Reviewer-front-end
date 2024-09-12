@@ -33,7 +33,7 @@ function Login({setToken}){
     const {username, password} = form;
     return (
         <div>
-            <h2>Login to Best Reviews</h2>
+            <h2>Login to Item Advisor</h2>
             <form>
                 <label>
                     Username
