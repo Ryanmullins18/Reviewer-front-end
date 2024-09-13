@@ -198,11 +198,11 @@ nav {
     margin-bottom: 5px;
     margin-left: 0px;
     width: 259px;
-
 }
 }
 .logo{
   text-align: center;
+  pointer-events: none;
 }
 .login-to-add{
   text-align: center;
