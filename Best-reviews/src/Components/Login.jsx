@@ -20,9 +20,7 @@ function Login({setToken}){
             setError('Please provide username and password')
             return;
        }
-       if(error){
-        setError("Username or password is incorrect")
-       }
+     
 
        const {data, error}= await login(form);
        if(error) {
