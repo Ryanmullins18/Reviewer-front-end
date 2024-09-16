@@ -35,10 +35,10 @@ navigate(`/items/${data.review.item_id}`);
             <h2>Comment form</h2>
             {error && <p>{error}</p>}
             <form>
-                <label>
+                <textarea>
                     Comment
                     <input name="comment" value={comment} onChange={handleChange}/>
-                </label>
+               </textarea>
                 <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>
