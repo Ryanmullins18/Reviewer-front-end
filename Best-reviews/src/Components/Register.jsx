@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useRegisterMutation } from "../redux/api";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png"
 
 function Register({setToken}){
     const initialForm = {username: "", password: ""};
     const navigate= useNavigate()
-
     const[form, updateForm] = useState(initialForm);
     const[showPassword, setShowPassword]= useState(false)
     const[error, setError] = useState(null);
@@ -39,8 +39,8 @@ function Register({setToken}){
     const {username, password} = form;
  
     return (
-        <div>
-            <h2>Register for Item Advisor</h2>
+        <div className="auth-container">
+            <img className="form-logo" src={logo} />
             {error && <p>{error} </p>}
             <form>
                 <label>
@@ -61,7 +61,7 @@ function Register({setToken}){
                 />
                 </label>
                 <button onClick={handleSubmit}>Register</button>
-            <button onClick= {()=> setShowPassword(!showPassword)}>show password</button>
+            
             </form>
         </div>
     )

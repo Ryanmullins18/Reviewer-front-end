@@ -1,3 +1,53 @@
+@media only screen and (max-width: 600px) {
+  .splash {
+    width: 300px;
+  }
+  .splash img{
+    width: 318px;
+    height: 260px;
+  }
+  .wrapper{
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wrapper img{
+    width: 13em;
+    height: 8.5em;
+  }
+  .item-img{
+    width: 17em;
+    height: 13.5em;
+  }
+  .item-box {
+    background-color: #fff;
+    border: solid;
+    border-radius: 2%;
+    margin-top: 20px;
+    color: #000;
+    width: 368px;
+    padding: 10px;
+}
+.logo{
+  width: 368px;
+  height: 260px;
+}
+.login-to-add {
+  padding: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin: auto;
+}
+.item-reviews {
+    border-radius: 5%;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 258px;
+    
+}
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,7 +65,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #f1f1f6;
   text-decoration: inherit;
 }
 a:hover {
@@ -78,6 +128,7 @@ nav {
   background-color: #272525;
   height: 30px;
   font-size: larger;
+  z-index: 1;
 }
 .profile-button{
   max-width: 100%;
@@ -95,11 +146,20 @@ nav {
 
 }
 .reviews{
-  background-color: #beb6a1;
-  border-radius: 5%;
-  padding: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  position: relative;
+  width: 350px;
+  height: auto;
+ margin-top: 20px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  
+  display: flex;
+  flex-direction: column;
+}
+.reviews button{
+  width: 70px;
 }
 .stars{
   color: rgb(125, 107, 8);
@@ -113,7 +173,7 @@ nav {
 }
 .items-box{
   background-color: #fff;
-  border: solid;
+  
   border-radius: 2%;
   margin-top: 20px;
   color: #000;
@@ -121,6 +181,7 @@ nav {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
 
 .item-box{
@@ -148,56 +209,6 @@ nav {
   width: 30em;
   height: 21.5em;
   padding: 10px;
-}
-@media only screen and (max-width: 600px) {
-  .splash {
-    width: 300px;
-  }
-  .splash img{
-    width: 318px;
-    height: 260px;
-  }
-  .wrapper{
-    width: 300px;
-    text-align: center;
-  }
-  .wrapper img{
-    width: 13em;
-    height: 8.5em;
-  }
-  .item-img{
-    width: 17em;
-    height: 13.5em;
-  }
-  .item-box {
-    background-color: #fff;
-    border: solid;
-    border-radius: 2%;
-    margin-top: 20px;
-    color: #000;
-    width: 368px;
-    padding: 10px;
-}
-.logo{
-  width: 368px;
-  height: 260px;
-}
-.login-to-add {
-  padding: 10px;
-  margin-bottom: 10px;
-  display: block;
-  margin: auto;
-}
-.item-reviews {
-  
-    border: solid rgb(201, 178, 178);
-    border-radius: 5%;
-    padding: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 0px;
-    width: 259px;
-}
 }
 .logo{
   text-align: center;
@@ -241,6 +252,37 @@ label {
 }
 .search{
   width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reviews-button {
+  grid-column: 1;
+  grid-row: 2;
+}
+.auth-container{
+  position: relative;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+.form-logo{
+  width: 100px;
+  height: 75px;
+}
+.item-reviews{
+  position: relative;
+  width: 350px;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  
   margin-left: auto;
   margin-right: auto;
 }

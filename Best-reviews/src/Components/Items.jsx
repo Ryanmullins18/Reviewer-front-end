@@ -48,11 +48,11 @@ return (
       return(
           <div className="items-box" key={item.id}>
           <img className="item-img" src={item.img_url}/>
-          <p>Item: {item.name}</p>
+          <p> {item.name}</p>
           <p>Description: {item.description}</p>
           {item.reviews?.length > 0 && 
           <div> 
-            <p>Latest review of this item : {item.reviews[0].txt}</p>
+            <p>Review of this item : {item.reviews[0].txt}</p>
             <p className="stars">Stars: {item.reviews[0].score}</p>
           </div>
           }
@@ -78,11 +78,11 @@ return (
     return(
         <div className="items-box" key={item.id}>
         <img className="item-img" src={item.img_url}/>
-        <p>Item: {item.name}</p>
+        <p> {item.name}</p>
         <p>Description: {item.description}</p>
         {item.reviews?.length > 0 && 
         <div> 
-          <p>Latest review of this item : {item.reviews[0].txt}</p>
+          <p>Review of this item : {item.reviews[0].txt}</p>
           <p className="stars">Stars: {item.reviews[0].score}</p>
         </div>
         }

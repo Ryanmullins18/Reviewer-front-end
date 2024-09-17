@@ -24,7 +24,7 @@ function SingleItem({token}){
     return <p className="cent">Loading Reviews...</p>;
   }
   const { name, description, reviews, img_url} = data?.item;   
-  
+  console.log(data)
   if(token){  
 
     return (
@@ -36,15 +36,18 @@ function SingleItem({token}){
           Description: {description} 
         </h3>
         <button onClick={() => navigate(`/reviews/${data.item.id}`)}>Add Review</button>
-            <div className="item-reviews">
+            <div>
               
           {reviews.map((review) => (
-            <li key={review.id} className="reviews">
+            <li className="item-reviews" key={review.id} >
               {review.txt} 
               <div className="stars">
             Stars: {review.score}
             </div> 
-            <button key={review.comment} onClick={() => setShowText(!showText)}>Comments</button>
+
+            {review.comments && review.comments.map(()=>(
+              <button key={review.id} onClick={() => setShowText(!showText)}>Comments({review.comments.length})</button>
+            ))}
       {showText && <div>{review.comments && review.comments.map((comment)=>(
         <li key={comment.id} className="comments">
               {comment.comment}
@@ -72,17 +75,18 @@ function SingleItem({token}){
       <h3>
         Description: {description} 
       </h3>
-          <div className="item-reviews">
+          <div>
             
         {reviews.map((review) => (
-          <li key={review.id} className="reviews">
+          <li className="item-reviews" key={review.id} >
             Review: {review.txt}
             <div className="stars">
             Stars: {review.score}
             </div> 
             <div>
-           
-              <button key={review.id} onClick={() => setShowText(!showText)}>Comments</button>
+            {review.comments && review.comments.map(()=>(
+              <button key={review.id} onClick={() => setShowText(!showText)}>Comments({review.comments.length})</button>
+            ))}
       {showText && <div>{review.comments && review.comments.map((comment)=>(
         <li key={comment.id} className="comments">
               {comment.comment}

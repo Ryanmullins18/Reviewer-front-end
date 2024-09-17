@@ -33,14 +33,14 @@ function Profile({token}){
             Reviews: {reviews.map((review) => (
             <li className="reviews" key={review.id}>
               {review.txt} score: {review.score}
-              <button onClick={() => navigate(`reviews/${review.id}`)}>Edit</button>
-              <button onClick={()=> navigate(`delete/reviews/${review.id}`)}>Delete</button>
+              <button className="reviews-button" onClick={() => navigate(`reviews/${review.id}`)}>Edit</button>
+              <button className="reviews-button" onClick={()=> navigate(`delete/reviews/${review.id}`)}>Delete</button>
             </li>
             ))}
           </ul>
-          <ul className="profile-comments">
+          <ul className="profile-reviews">
             Comments: {comments.map((comment) => (
-            <li className="comments" key={comment.id}>
+            <li className="reviews" key={comment.id}>
               {comment.comment}
               <button onClick={() => navigate(`comments/${comment.id}`)}>Edit</button>
               <button onClick={()=> navigate(`delete/comment/${comment.id}`)}>Delete</button>

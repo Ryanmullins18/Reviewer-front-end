@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoginMutation } from "../redux/api";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png"
 
 function Login({setToken}){
     const initialForm = {username: "", password: ""};
@@ -33,8 +34,8 @@ function Login({setToken}){
     }
     const {username, password} = form;
     return (
-        <div>
-            <h2>Login to Item Advisor</h2>
+        <div className="auth-container">
+            <img className="form-logo" src={logo} />
             <form>
                 <label>
                     Username
