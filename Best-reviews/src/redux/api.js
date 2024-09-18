@@ -87,6 +87,7 @@ export const review_api= createApi({
             },
             body,
         }),
+        invalidatesTags: ["User"]
     }),
     editReview: builder.mutation({
         query: ({id, token, body})=> ({
@@ -97,6 +98,7 @@ export const review_api= createApi({
             },
             body,
         }),
+        invalidatesTags: ["User"]
     }),
     deleteReview: builder.mutation({
         query: ({ id, token }) => ({
@@ -106,7 +108,7 @@ export const review_api= createApi({
             authorization: `Bearer ${token}`,
           },
         }),
-        invalidatesTags: ["reviews", "review"],
+        invalidatesTags: ["User"],
       }),
       deleteComment: builder.mutation({
         query: ({ id, token }) => ({
@@ -116,7 +118,7 @@ export const review_api= createApi({
             authorization: `Bearer ${token}`,
           },
         }),
-        invalidatesTags: ["comments", "comment"],
+        invalidatesTags: ["User"]
       }),
   }),
 });
