@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 export const review_api= createApi({
     reducerPath: 'review_api',
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://itemadvisor.onrender.com/api"
+        baseUrl: "http://localhost:8080/api/"
     }),
     endpoints: (builder) => ({
         register: builder.mutation({
@@ -69,7 +69,6 @@ export const review_api= createApi({
                 method: "GET",
                 
             }),
-            providesTags:["item"]
         }),
         getComment: builder.query({
             query:(id)=> ({
@@ -77,7 +76,6 @@ export const review_api= createApi({
                 method: "GET",
                 
             }),
-            providesTags:["item"]
         }),
   
     editComment: builder.mutation({
