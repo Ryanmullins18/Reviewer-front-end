@@ -45,6 +45,7 @@ function EditReviewForm ({token}){
                 <p className="stars">Stars:{data.review.score}</p>
             </div>
          
+         
             {error && <p>{error}</p>}
             <form action="">
                 <label>
