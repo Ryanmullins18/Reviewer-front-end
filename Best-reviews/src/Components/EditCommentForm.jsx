@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useEditCommentMutation } from "../redux/api";
+import { useEditCommentMutation, useGetCommentQuery } from "../redux/api";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -13,10 +13,16 @@ const { id } = useParams();
 const [error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
 const [editComment] = useEditCommentMutation();
+const { data = {}, isLoading } = useGetCommentQuery(id);
+if (isLoading) {
+    return <p>Loading Review...</p>;
+  }
+
 const handleChange = ({ target }) => {
     setError(null)
     updateForm({...form, [target.name]: target.value});
 };
+console.log(data)
 const {comment} = form;
 const handleSubmit =async (evt) =>{
     evt.preventDefault();
@@ -33,6 +39,9 @@ const handleSubmit =async (evt) =>{
     return(
         <div>
             <h2>Edit comment form</h2>
+            <div className="reviews">
+               {data.comment.comment}
+            </div>
             {error && <p>{error}</p>}
             <form>
                 <label>

@@ -1,6 +1,5 @@
 import { useGetItemQuery } from "../redux/api";
 import { useParams } from "react-router-dom";
-import salad_img from "../assets/salad_img.jpg"
 import { useNavigate } from "react-router-dom";
 import "../../src/index.css"
 import { useState } from "react";

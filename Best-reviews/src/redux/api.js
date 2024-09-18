@@ -63,6 +63,22 @@ export const review_api= createApi({
             }),
             providesTags: ["User"],
         }),
+        getReview: builder.query({
+            query:(id)=> ({
+                url:`/reviews/${id}`,
+                method: "GET",
+                
+            }),
+            providesTags:["item"]
+        }),
+        getComment: builder.query({
+            query:(id)=> ({
+                url:`/comments/${id}`,
+                method: "GET",
+                
+            }),
+            providesTags:["item"]
+        }),
   
     editComment: builder.mutation({
         query: ({id, token, body})=> ({
@@ -76,7 +92,7 @@ export const review_api= createApi({
     }),
     editReview: builder.mutation({
         query: ({id, token, body})=> ({
-            url: `reviews/${id}`,
+            url: `/reviews/${id}`,
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${token}`
@@ -107,4 +123,4 @@ export const review_api= createApi({
   }),
 });
 
-export const{useRegisterMutation, useGetItemQuery, useGetItemsQuery, useLoginMutation, useNewReviewMutation, useNewCommentMutation, useGetUserQuery, useEditReviewMutation, useEditCommentMutation, useDeleteCommentMutation, useDeleteReviewMutation} = review_api;
+export const{useRegisterMutation, useGetItemQuery, useGetItemsQuery, useLoginMutation, useNewReviewMutation, useNewCommentMutation, useGetUserQuery, useEditReviewMutation, useEditCommentMutation, useDeleteCommentMutation, useDeleteReviewMutation, useGetReviewQuery, useGetCommentQuery} = review_api;
