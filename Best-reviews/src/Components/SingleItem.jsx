@@ -45,9 +45,7 @@ function SingleItem({token}){
             Stars: {review.score}
             </div> 
 
-            {review.comments && review.comments.map(()=>(
-              <button key={review.id} onClick={() => setShowText(!showText)}>Comments({review.comments.length})</button>
-            ))}
+            <button key={review.id} onClick={() => setShowText(!showText)}>Comments({review.comments.length})</button>
       {showText && <div>{review.comments && review.comments.map((comment)=>(
         <li key={comment.id} className="comments">
               {comment.comment}
@@ -84,9 +82,8 @@ function SingleItem({token}){
             Stars: {review.score}
             </div> 
             <div>
-            {review.comments && review.comments.map(()=>(
               <button key={review.id} onClick={() => setShowText(!showText)}>Comments({review.comments.length})</button>
-            ))}
+              
       {showText && <div>{review.comments && review.comments.map((comment)=>(
         <li key={comment.id} className="comments">
               {comment.comment}
@@ -94,7 +91,7 @@ function SingleItem({token}){
               ))}
               </div>}
               </div>
-          </li>
+              </li>
           ))}
         
         

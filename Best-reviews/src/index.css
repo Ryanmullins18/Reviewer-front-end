@@ -6,12 +6,13 @@
     width: 318px;
     height: 260px;
   }
-  .wrapper{
+  .items-wrapper{
     
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+  
   .wrapper img{
     width: 13em;
     height: 8.5em;
@@ -47,6 +48,19 @@
     width: 258px;
     
 }
+.profile-reviews-wrapper{
+  border: solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile-comments-wrapper{
+  border: solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  bottom: -2148px;
+}
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -56,7 +70,6 @@
   color-scheme: light dark;
   color: rgb(113, 1, 1);
   background-color: #FFF2E6;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -80,6 +93,10 @@ body {
   min-height: 100vh;
   max-width: 100%;
 }
+.wrapper{
+  background-color: white;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
 
 h1 {
   font-size: 3.2em;
@@ -89,7 +106,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -149,7 +166,7 @@ nav {
   position: relative;
   width: 350px;
   height: auto;
- margin-top: 20px;
+  margin-top: 20px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -173,7 +190,6 @@ nav {
 }
 .items-box{
   background-color: #fff;
-  
   border-radius: 2%;
   margin-top: 20px;
   color: #000;
@@ -182,6 +198,7 @@ nav {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  
 }
 
 .item-box{
@@ -214,9 +231,7 @@ nav {
   text-align: center;
   pointer-events: none;
 }
-.login-to-add{
-  text-align: center;
-}
+
 .search{
   text-align: center;
 }
@@ -255,10 +270,6 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
-.reviews-button {
-  grid-column: 1;
-  grid-row: 2;
-}
 .auth-container{
   position: relative;
   width: 350px;
@@ -285,4 +296,57 @@ label {
   
   margin-left: auto;
   margin-right: auto;
+}
+.reviews-button{
+  display: block;
+  margin: auto;
+  margin-top: 3px;
+  border: #000;
+}
+.profile-reviews-wrapper{
+  border: solid black;
+    position: absolute;
+    left: 15%;
+    width: 30%;
+    background-color: white;
+}
+.profile-comments-wrapper{
+  border: solid black;
+    position: absolute;
+    right: 15%;
+    width: 30%;
+    background-color: white;
+}
+.profile-reviews{
+  position: relative;
+  width: 350px;
+  height: 200px;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  display: flex;
+  flex-direction: column;
+  right: 20px;
+}
+.profile-comments{
+  position: relative;
+  width: 350px;
+  height: 200px;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  display: flex;
+  flex-direction: column;
+  right: 20px;
+}
+.profile-page-img{
+  border: solid #000;
+  border-radius: 50%;
+  width: 250px;
+  height: 200px;
+  background-color: white;
 }

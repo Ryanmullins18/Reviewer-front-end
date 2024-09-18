@@ -1,7 +1,8 @@
 import { useGetUserQuery } from "../redux/api";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import logo from "../assets/logo.png"
+
 
 
 
@@ -26,28 +27,27 @@ function Profile({token}){
   
       return (
         <section className="padding account">
+            <img className="profile-page-img" src={logo} alt="" />
           <h1>Profile</h1>
-          <div>
             <p className="username">{username}</p>
-            <ul className="profile-reviews">
+            <ul className="profile-reviews-wrapper">
             Reviews: {reviews.map((review) => (
-            <li className="reviews" key={review.id}>
-              {review.txt} score: {review.score}
+            <li className="profile-reviews" key={review.id}>
+              {review.txt} <p className="stars">Stars: {review.score}</p>
               <button className="reviews-button" onClick={() => navigate(`reviews/${review.id}`)}>Edit</button>
               <button className="reviews-button" onClick={()=> navigate(`delete/reviews/${review.id}`)}>Delete</button>
             </li>
             ))}
           </ul>
-          <ul className="profile-reviews">
+          <ul className="profile-comments-wrapper">
             Comments: {comments.map((comment) => (
-            <li className="reviews" key={comment.id}>
+            <li className="profile-comments" key={comment.id}>
               {comment.comment}
-              <button onClick={() => navigate(`comments/${comment.id}`)}>Edit</button>
-              <button onClick={()=> navigate(`delete/comment/${comment.id}`)}>Delete</button>
+              <button className="reviews-button" onClick={() => navigate(`comments/${comment.id}`)}>Edit</button>
+              <button className="reviews-button" onClick={()=> navigate(`delete/comment/${comment.id}`)}>Delete</button>
             </li>
             ))}
           </ul>
-          </div>
         </section>
       );
     }

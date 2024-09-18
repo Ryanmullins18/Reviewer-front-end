@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEditReviewMutation } from "../redux/api";
 import { useNavigate, useParams } from "react-router-dom";
+import { useGetUserQuery } from "../redux/api";
 
 function EditReviewForm({token}){
     const initialForm = {
@@ -12,19 +13,24 @@ const { id } = useParams();
 const[error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
 const [editReview] = useEditReviewMutation();
+const { data = {}, isLoading } = useGetUserQuery(token);
 const handleChange = ({ target }) => {
     setError(null)
     updateForm({...form, [target.name]: target.value});
 };
+
 const {txt, score} = form;
 const handleSubmit =async (evt) =>{
     evt.preventDefault();
-if(txt === "" || score === ""){
-    setError("Please use text and stars")
-    return;
-}
-const {data, error}= await editReview({id, token, body: form});
-console.dir(token)
+    
+    if(txt === "" || score === ""){
+        setError("Please use text and stars")
+        return;
+    }
+    const {data, error}= await editReview({id, token, body: form});
+    console.dir(token)
+    navigate(`/users`)
+  
 };
 
     return(

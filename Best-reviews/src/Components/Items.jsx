@@ -39,7 +39,7 @@ if(token){
   
 return (
   
-  <div className="wrapper">
+  <div className="items-wrapper">
   <img src= {logo}/>
   <label className="search" >
   {" "} <input value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
@@ -49,10 +49,11 @@ return (
           <div className="items-box" key={item.id}>
           <img className="item-img" src={item.img_url}/>
           <p> {item.name}</p>
-          <p>Description: {item.description}</p>
+          <p> {item.description}</p>
+          <br/>
           {item.reviews?.length > 0 && 
           <div> 
-            <p>Review of this item : {item.reviews[0].txt}</p>
+            <p>Latest Review of this item : {item.reviews[0].txt}</p>
             <p className="stars">Stars: {item.reviews[0].score}</p>
           </div>
           }
@@ -68,18 +69,19 @@ return (
 };
 return (
   
-  <div className="wrapper">
+  <div className="items-wrapper">
     <img src= {logo}/>
     <label>
     {" "} <input className="search" value={search} placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
     </label>
-    
+    <div className="grid-wrapper">
   {itemsToDisplay.map((item)=>{
     return(
         <div className="items-box" key={item.id}>
         <img className="item-img" src={item.img_url}/>
         <p> {item.name}</p>
-        <p>Description: {item.description}</p>
+        <p className="description"> {item.description}</p>
+        <br/>
         {item.reviews?.length > 0 && 
         <div> 
           <p>Review of this item : {item.reviews[0].txt}</p>
@@ -95,6 +97,7 @@ return (
     </div>
     )
           })}
+          </div>
   </div>
 );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useEditCommentMutation } from "../redux/api";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ function EditCommentForm({token}){
         comment: ""
     }
 const { id } = useParams();
-const[error, setError] = useState(null);
+const [error, setError] = useState(null);
 const [form, updateForm]= useState(initialForm)
 const [editComment] = useEditCommentMutation();
 const handleChange = ({ target }) => {
@@ -20,13 +20,14 @@ const handleChange = ({ target }) => {
 const {comment} = form;
 const handleSubmit =async (evt) =>{
     evt.preventDefault();
-if(comment === ""){
-    setError("Please use text")
-    return;
-}
-
-const {data, error}= await editComment({id, token, body: form});
-console.dir(token)
+    if(comment === ""){
+        setError("Please use text")
+        return;
+    }
+    
+    const {data, error}= await editComment({id, token, body: form});
+    console.dir(token)
+    navigate(`/users`)
 };
 
     return(
