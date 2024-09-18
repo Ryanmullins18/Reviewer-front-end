@@ -84,7 +84,7 @@ return (
         <br/>
         {item.reviews?.length > 0 && 
         <div> 
-          <p>Review of this item : {item.reviews[0].txt}</p>
+          <p>Latest review of this item : {item.reviews[0].txt}</p>
           <p className="stars">Stars: {item.reviews[0].score}</p>
         </div>
         }
